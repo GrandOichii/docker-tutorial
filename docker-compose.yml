@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    ports:
+      - 5123:5123
+    links:
+      - db
+    depends_on:
+      - db
+    environment:
+      PGHOST: db
+  db:
+    image: postgres:16.0
+    environment:
+      POSTGRES_DB: docker-first-image-db
+      PGUSER: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - .:/docker-entrypoint-initdb.d
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+volumes:
+  db-data:
