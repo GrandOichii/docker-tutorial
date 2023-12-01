@@ -3,7 +3,7 @@
 Dockerize a simple node application, following the tutorial from Fireship.io https://www.youtube.com/watch?v=gAkwW2tuIqE&t
 
 ## Building
-To create the docker image, use the `docker build -t <docker hub username>/<image name>:<image version>` command. **-t** signifies that the image has to be created under a certain tag
+To create the docker image, use the `docker build -t <docker hub username>/<image name>:<image version> .` command. **-t** signifies that the image has to be created under a certain tag
 
 ## Running
 To run the docker container, use the `docker run -p 5000:5123 <image tag>` OR `docker run -p 5000:5123 <image ID>`. **-d** signifies that the container will be running in *detached* mode, meaning it will detach from the terminal. The container run this way can be killed using *Docker Desktop* or using the Docker CLI. **5000:5123** signifies that the port **5123** of the container is forwarded to port **5000**, meaning if the server is running on port **5123**, it will have to be accessed using the URL **localhost:5000**.
